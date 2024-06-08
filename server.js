@@ -1,5 +1,5 @@
 import "dotenv/config.js";
-
+import notesRouter from "./routes/notes.js";
 import createError from "http-errors";
 import express from "express";
 import path from "path";
@@ -16,7 +16,7 @@ const app = express();
 // view engine setup
 app.set("views", path.join("views"));
 app.set("view engine", "pug");
-
+app.use("/notes", notesRouter);
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
